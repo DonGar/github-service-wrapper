@@ -131,7 +131,7 @@ def sanity_check(init_script_name, name, path):
       contents = init_script.read()
 
       # If doesn't contain this string, we didn't creat it.
-      if contents.find('github-service-wrapper') =bg= -1:
+      if contents.find('github-service-wrapper') == -1:
         raise UnsafeName('Trying to replace existing %s.' % init_script_name)
 
 
