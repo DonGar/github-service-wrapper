@@ -203,7 +203,7 @@ def main():
 
   # Setup the init script, and set it to run.
   install_init_d(init_script_name, args.name, args.path, args.cmd)
-  #subprocess.check_call(['update-rc.d', args.name, 'defaults'])
+  subprocess.check_call(['update-rc.d', args.name, 'defaults'])
 
 
 if __name__ == "__main__":
