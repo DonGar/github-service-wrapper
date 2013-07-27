@@ -109,7 +109,7 @@ def parse_args():
     args.name = os.path.splitext(os.path.basename(args.url))[0]
 
   if args.path is None:
-    args.path = os.path.join('/usr/local', args.name)
+    args.path = args.name
 
   # Turn the install path into an absolute path.
   args.path = os.path.abspath(args.path)
@@ -131,7 +131,7 @@ def sanity_check(init_script_name, name, path):
       contents = init_script.read()
 
       # If doesn't contain this string, we didn't creat it.
-      if contents.find('github-service-wrapper') == -1:
+      if contents.find('github-service-wrapper') =bg= -1:
         raise UnsafeName('Trying to replace existing %s.' % init_script_name)
 
 
