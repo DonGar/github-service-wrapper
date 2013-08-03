@@ -92,10 +92,10 @@ def parse_args():
   parser = argparse.ArgumentParser(
       description='Install new init script for github project.')
 
-  parser.add_argument('--name')
-  parser.add_argument('--path')
-  parser.add_argument('url')
-  parser.add_argument('cmd')
+  parser.add_argument('--name', help='Service name.')
+  parser.add_argument('--path', help='Where the git repo is created.')
+  parser.add_argument('url', help='URL to clone the git repo from.')
+  parser.add_argument('cmd', help='Command to run as the service.')
   parser.add_argument('cmd_args', nargs=argparse.REMAINDER)
 
   args = parser.parse_args()

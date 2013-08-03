@@ -1,5 +1,26 @@
 github-service-wrapper
 ======================
 
-Script to create init scripts on Ubuntu derived (including Raspbian) for a
-github project, and to auto-update that project on restart.
+If you have a git project, that you want to run on an Debian derived server
+(like Raspbian), and which you want to auto-update on restart of the server,
+this script will help.
+
+It will fetch the git repository into PATH, and create an init script to
+update an run it using the specified command.
+
+If you want to change the command options, you can rerun the setup script at
+any time.
+
+usage: setup.py [-h] [--name NAME] [--path PATH] url cmd ...
+
+Install new init script for github project.
+
+positional arguments:
+  url          URL to clone the git repo from.
+  cmd          Command to run as the service.
+  cmd_args
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --name NAME  Service name.
+  --path PATH  Where the git repo is created.
