@@ -11,6 +11,13 @@ update an run it using the specified command.
 If you want to change the command options, you can rerun the setup script at
 any time.
 
+After a service has been setup, you can control it with:
+  /etc/init.d/<name> start
+  /etc/init.d/<name> stop
+  /etc/init.d/<name> restart
+  /etc/init.d/<name> status
+
+
 usage: setup.py [-h] [--name NAME] [--path PATH] url cmd ...
 
 Install new init script for github project.
