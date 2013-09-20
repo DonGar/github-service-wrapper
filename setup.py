@@ -43,7 +43,8 @@ start)
     printf "%-50s" "Starting $NAME..."
     cd $DAEMON_PATH
     git pull
-    PID=`./$DAEMON > /dev/null 2>&1 & echo $!`
+    ./$DAEMON > /dev/null 2>&1 & disown
+    PID=$!
     if [ -z $PID ]; then
         printf "%s\n" "Fail"
     else
@@ -93,7 +94,8 @@ def parse_args():
       description='Install new init script for github project.')
 
   parser.add_argument('--name', help='Service name.')
-  parser.add_argument('--path', help='Where the git repo is created.')
+  parser.add_argument('--path',
+      help='Where the git repo is created (Default: /usr/local/<project>.')
   parser.add_argument('url', help='URL to clone the git repo from.')
   parser.add_argument('cmd', help='Command to run as the service.')
   parser.add_argument('cmd_args', nargs=argparse.REMAINDER)
@@ -109,7 +111,7 @@ def parse_args():
     args.name = os.path.splitext(os.path.basename(args.url))[0]
 
   if args.path is None:
-    args.path = args.name
+    args.path = os.path.join('/usr/local', args.name)
 
   # Turn the install path into an absolute path.
   args.path = os.path.abspath(args.path)
