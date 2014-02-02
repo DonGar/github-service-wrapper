@@ -24,7 +24,7 @@ TEMPLATE = """
 # Description: GPIO Polling with reporting to house-monitor
 ### END INIT INFO
 
-#! /bin/sh
+#! /bin/bash
 # /etc/init.d/PROJECT_NAME
 
 # This init script created by:
