@@ -43,7 +43,7 @@ start)
     printf "%-50s" "Starting $NAME..."
     cd $DAEMON_PATH
     git pull
-    ./$DAEMON > /dev/null 2>&1 & disown
+    nohup ./$DAEMON > /dev/null 2>&1 &
     PID=$!
     if [ -z $PID ]; then
         printf "%s\n" "Fail"
